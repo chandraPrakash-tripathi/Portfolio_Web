@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ContactForm } from './types';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -35,4 +36,17 @@ export const getProjects = async (): Promise<Project[]> => {
 export const getSkills = async (): Promise<Skill[]> => {
   const response = await api.get('/skills/');
   return response.data;
+};
+
+
+export const submitContactForm = async (data: ContactForm): Promise<boolean> => {
+  console.log("Submitting form data:", data);
+  
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  
+  // Simulate a success response (in a real app, this would be a fetch/axios call)
+  // For demonstration, we'll assume it always succeeds.
+  // To test error state, you can return false.
+  return true; 
 };
