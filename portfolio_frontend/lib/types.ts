@@ -3,12 +3,10 @@
 export interface Project {
   id: number;
   title: string;
-  description: string;
-  image?: string;
-  github_url?: string;
+  impact: string;
+  technologies: string[];
+  github_url: string;
   live_url?: string;
-  technologies: string;
-  created_at: string;
   is_featured: boolean;
 }
 
