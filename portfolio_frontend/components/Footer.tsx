@@ -6,13 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           
-          {/* Brand / Name */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold text-white">Chandraprakash Tripathi</h3>
-            <p className="text-sm text-gray-400 mt-2">
-              Data Engineer • Full-Stack Developer • ML Enthusiast
-            </p>
-          </div>
+          
 
           {/* Navigation Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
@@ -54,7 +48,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Chandraprakash Tripathi. All rights reserved.
+          © {new Date().getFullYear()} All rights reserved.
         </div>
       </div>
     </footer>

@@ -11,11 +11,9 @@ const skills = [
   { name: 'Node.js', logo: '/logos/nodejs.png' },
   { name: 'FastAPI', logo: '/logos/fastapi.png' },
   { name: 'TensorFlow', logo: '/logos/tensorflow.png' },
-  { name: 'Pandas', logo: '/logos/pandas.png' },
   { name: 'MongoDB', logo: '/logos/mongodb.png' },
   { name: 'Firebase', logo: '/logos/firebase.png' },
   { name: 'Git', logo: '/logos/github.png' },
-  { name: 'ML & DL', logo: '/logos/brain.png' },
 ];
 
 const SkillsSection = () => {
