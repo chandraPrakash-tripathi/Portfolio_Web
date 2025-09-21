@@ -43,7 +43,6 @@ export default function PortfolioPage() {
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
       <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <main>
-        <h1 className='text-8xl'>Hi</h1>
         
         <HeroSection />
         <AboutSection />
