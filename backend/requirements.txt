@@ -1,0 +1,6 @@
+fastapi
+unicorn[standard]
+sqlmodel
+alembic
+python-multipart
+email-validator
