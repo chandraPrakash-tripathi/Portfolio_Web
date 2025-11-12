@@ -1,25 +1,32 @@
-import React, { Suspense } from 'react';
-import { getProjectsPromise } from '@/lib/projects';
-import ProjectsSkeleton from './ProjectsSkeleton';
-import ProjectsList from './ProjectsList';
+"use client";
 
-export default function ProjectsSection() {
-  const projectsPromise = getProjectsPromise();
+import React, { useEffect, useState } from "react";
+import { fetchProjects } from "@/lib/projects";
+import type { Project } from "@/lib/types";
+
+export default function ProjectSection() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchProjects()
+      .then(setProjects)
+      .catch((err) => console.error("Error fetching projects:", err))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Projects</span>
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-sm mt-3">Crisp snapshots — impact first, details later</p>
-        </div>
-
-        <Suspense fallback={<ProjectsSkeleton />}>
-          <ProjectsList projectsPromise={projectsPromise} />
-        </Suspense>
+    <section className="p-6">
+      <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projects.map((p) => (
+          <div key={p.id} className="border rounded p-4 shadow-sm">
+            <h3 className="text-lg font-bold">{p.title}</h3>
+            <p className="text-sm text-gray-600">{p.short_desc}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

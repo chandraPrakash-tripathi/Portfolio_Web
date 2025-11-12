@@ -1,5 +1,5 @@
 'use client';
-import { Code, Briefcase, Database, Brain, BarChart3 } from 'lucide-react';
+import { Briefcase, Database, Brain, BarChart3 } from 'lucide-react';
 import { useIntersectionObserver } from '../lib/hooks';
 
 const AboutSection = () => {
