@@ -1,4 +1,4 @@
-import { Project } from "./types";
+import { Project } from "../types";
 
 const API_BASE = process.env.API_BASE ?? 'http://127.0.0.1:8000';
 
