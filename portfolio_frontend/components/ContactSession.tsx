@@ -6,30 +6,41 @@ const ContactSection = () => {
     {
       icon: Mail,
       href: 'mailto:tripathi.cp07@gmail.com',
-      color: 'from-red-500 to-pink-500',
       label: 'Email',
+      glow: 'from-cyan-400/40 to-blue-500/40',
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/in/Chandraprakash-tripathi',
-      color: 'from-blue-600 to-blue-800',
+      href: 'https://linkedin.com/in/chandraprakash-tripathi',
       label: 'LinkedIn',
+      glow: 'from-purple-400/40 to-pink-500/40',
     },
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-            Contact Me
+    <section
+      id="contact"
+      className="relative py-24 bg-gradient-to-b from-[#05060a] to-black text-gray-200 overflow-hidden"
+    >
+      {/* Background AI glow */}
+      <div className="absolute inset-0 opacity-25 pointer-events-none">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(110,231,183,0.15),transparent),radial-gradient(circle_at_80%_70%,rgba(96,165,250,0.15),transparent)]" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        {/* Header */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <span className="bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text text-transparent">
+            Contact
           </span>
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-12">
-          Feel free to reach out via email or connect on LinkedIn.
+
+        <p className="text-gray-400 max-w-md mx-auto mb-12">
+          Let’s connect — I’m always open to conversations.
         </p>
 
-        <div className="flex justify-center gap-8">
+        {/* Contact Nodes */}
+        <div className="flex justify-center gap-10">
           {contacts.map((c, i) => {
             const Icon = c.icon;
             return (
@@ -38,10 +49,28 @@ const ContactSection = () => {
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r ${c.color} text-white shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1`}
+                className="relative group"
                 title={c.label}
               >
-                <Icon className="h-8 w-8" />
+                {/* Glow */}
+                <div
+                  className={`absolute inset-0 rounded-full bg-gradient-to-br ${c.glow} blur-2xl opacity-0 group-hover:opacity-60 transition-all duration-500`}
+                />
+
+                {/* Main icon container */}
+                <div
+                  className="flex items-center justify-center w-20 h-20 rounded-full 
+                  bg-white/5 border border-white/10 backdrop-blur-md shadow-lg
+                  group-hover:shadow-[0_0_30px_rgba(56,189,248,0.35)]
+                  transition-all duration-300 group-hover:scale-110"
+                >
+                  <Icon className="h-8 w-8 text-cyan-300 group-hover:text-white transition" />
+                </div>
+
+                {/* Label on hover */}
+                <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-sm text-gray-400 opacity-0 group-hover:opacity-100 transition mt-2">
+                  {c.label}
+                </span>
               </a>
             );
           })}

@@ -1,55 +1,74 @@
+'use client';
+
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 dark:bg-gray-900/95 text-gray-300 py-12 mt-16">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          
-          
+    <footer className="relative py-14 bg-gradient-to-b from-black to-[#05060a] text-gray-300 overflow-hidden">
+      
+      {/* Background AI Glow */}
+      <div className="absolute inset-0 opacity-25 pointer-events-none">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.15),transparent),radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.15),transparent)]" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-            <a href="#about" className="hover:text-white transition">About</a>
-            <a href="#projects" className="hover:text-white transition">Projects</a>
-            <a href="#skills" className="hover:text-white transition">Skills</a>
-            <a href="#contact" className="hover:text-white transition">Contact</a>
-          </div>
+          <nav className="flex flex-wrap gap-6 text-sm font-medium text-gray-400">
+            {["about", "projects", "skills", "contact"].map((id) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="relative group hover:text-white transition"
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+                {/* Underline glow */}
+                <span
+                  className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full 
+                  group-hover:w-full transition-all duration-300"
+                />
+              </a>
+            ))}
+          </nav>
 
           {/* Social Icons */}
           <div className="flex space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/chandraPrakash-tripathi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition"
+              className="p-2 rounded-full bg-white/5 border border-white/10 hover:scale-110 transition group"
             >
-              <Github className="h-5 w-5" />
+              <Github className="h-5 w-5 text-cyan-300 group-hover:text-white transition" />
             </a>
+
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/chandraprakash-tripathi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition"
+              className="p-2 rounded-full bg-white/5 border border-white/10 hover:scale-110 transition group"
             >
-              <Linkedin className="h-5 w-5" />
+              <Linkedin className="h-5 w-5 text-cyan-300 group-hover:text-white transition" />
             </a>
+
             <a
-              href="mailto:youremail@example.com"
-              className="hover:text-white transition"
+              href="mailto:tripathi.cp07@gmail.com"
+              className="p-2 rounded-full bg-white/5 border border-white/10 hover:scale-110 transition group"
             >
-              <Mail className="h-5 w-5" />
+              <Mail className="h-5 w-5 text-cyan-300 group-hover:text-white transition" />
             </a>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 my-8"></div>
+        <div className="border-t border-white/10 my-10" />
 
         {/* Copyright */}
-        <div className="text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} All rights reserved.
-        </div>
+        <p className="text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} — Built with passion & precision.
+        </p>
       </div>
     </footer>
   );
