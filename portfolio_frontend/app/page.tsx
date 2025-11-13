@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
-import SkillsSection from '../components/SkillsSection';
+
 import ProjectsSection from '../components/ProjectSection';
 import Footer from '../components/Footer';
 import ContactSection from '@/components/ContactSession';
@@ -46,7 +46,7 @@ export default function PortfolioPage() {
         
         <HeroSection />
         <AboutSection />
-        <SkillsSection />
+        {/* <SkillsSection /> */}
         <ProjectsSection />
         <ContactSection />
       </main>

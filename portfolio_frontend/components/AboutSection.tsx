@@ -65,10 +65,7 @@ const AboutSection = () => {
                 and data engineering — turning ideas into intelligent products.
               </p>
 
-              <p className="text-gray-400 text-sm max-w-xl">
-                Currently shaping data workflows & ML-powered automation at
-                <span className="text-cyan-300 font-semibold"> Kipi.ai</span>.
-              </p>
+              
             </div>
 
             {/* Right Column – Futuristic Highlight Cards */}

@@ -53,21 +53,7 @@ def seed_initial_data(session: Session):
             "live_url": "https://signsense-eccb4.web.app/",
             "is_featured": True,
         },
-        {
-            "title": "AI Meal Planner",
-            "short_desc": "AI-powered meal planner using Llama-3 and Streamlit for personalized meal plans.",
-            "long_desc": "Deployed an AI-powered meal planner app ...",
-            "github_url": "https://github.com/chandraPrakash-tripathi",
-            "live_url": "https://ai-meal-planner.streamlit.app/",
-            "is_featured": False,
-        },
-        {
-            "title": "Smart Things Device Kit for Arduino",
-            "short_desc": "Smart Things integration kit with Arduino and ESP32 for multi-device Wi-Fi control.",
-            "long_desc": "Integrated Smart Things Kit with Arduino; configured ESP32 modules ...",
-            "github_url": "https://github.com/chandraPrakash-tripathi",
-            "is_featured": False,
-        },
+       
     ]
 
     for p in resume_projects:
@@ -86,13 +72,9 @@ def seed_initial_data(session: Session):
 
     tags = [
         ("Python", "python"),
-        ("C++", "c-plus-plus"),
         ("FastAPI", "fastapi"),
         ("Next.js", "nextjs"),
-        ("React", "react"),
         ("Streamlit", "streamlit"),
-        ("Arduino", "arduino"),
-        ("ESP32", "esp32"),
     ]
     for name, slug in tags:
         existing_tag = session.exec(select(models.Tag).where(models.Tag.name == name)).first()
@@ -101,8 +83,8 @@ def seed_initial_data(session: Session):
     session.commit()
 
     skill_names = [
-        "Python", "C", "C++", "SQL", "HTML", "CSS", "JavaScript", "TypeScript",
-        "React", "Next.js", "Redux Toolkit", "Tailwind CSS", "Flask", "FastAPI"
+        "Python", "SQL", "HTML", "CSS", "JavaScript", "TypeScript",
+         "Next.js","Flask", "FastAPI"
     ]
     for i, name in enumerate(skill_names):
         existing_skill = session.exec(select(models.Skill).where(models.Skill.name == name)).first()
